@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bestemors Bursdag - Feiring</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lato:wght@300;400&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            background-color: #ffece3;
+            /* Lys ferskenfarge */
+            font-family: 'Lato', sans-serif;
+        }
+
+        h1,
+        h2 {
+            font-family: 'Great Vibes', cursive;
+            color: #f76c6c;
+            /* Varm rødrosa */
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.15);
+        }
+
+        h1 {
+            font-size: 4rem;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+        }
+
+        .carousel-item img {
+            width: 100%;
+            height: auto;
+            max-height: 600px;
+            object-fit: cover;
+            /* Dette sikrer at bildet fyller området uten å forvrenge bildet */
+            border-radius: 10px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+            transition: transform 0.5s ease;
+        }
+
+        .carousel-item img:hover {
+            transform: scale(1.02);
+        }
+
+        .carousel-caption {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        .carousel-caption h5 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.5rem;
+            margin-bottom: 0;
+            color: #ffd700;
+            /* Gullfarge */
+        }
+
+        .carousel-caption p {
+            font-size: 1.2rem;
+            color: #f1f1f1;
+        }
+
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            background-color: #f76c6c;
+            /* Samme rødrosa som tittelen */
+            border-radius: 50%;
+            padding: 10px;
+        }
+
+        .carousel-indicators li {
+            background-color: #f76c6c;
+            /* Rødrosa indikatorer */
+        }
+
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            filter: invert(100%);
+        }
+
+        /* Galleristil */
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 50px 0;
+            justify-content: center;
+        }
+
+        .gallery img {
+            width: 300px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.08);
+        }
+
+        /* Dedikasjonstext */
+        .dedication {
+            background-color: #f76c6c;
+            color: white;
+            padding: 30px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+            margin-bottom: 50px;
+        }
+
+        .dedication p {
+            font-size: 1.5rem;
+            font-style: italic;
+            margin: 0;
+        }
+
+        /* Media queries for better responsiveness */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 3rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .carousel-caption h5 {
+                font-size: 2rem;
+            }
+
+            .carousel-caption p {
+                font-size: 1rem;
+            }
+
+            .gallery img {
+                width: 100%;
+                height: auto;
+            }
+        }
+
+        .styled-countdown {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            font-family: 'Lato', sans-serif;
+            font-size: 2rem;
+            color: #fff;
+            background: linear-gradient(45deg, #ff7e5f, #feb47b);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .styled-countdown .time-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.25);
+            padding: 10px 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .styled-countdown .time-box:hover {
+            transform: scale(1.1);
+        }
+
+        .styled-countdown span {
+            font-size: 3.5rem;
+            font-weight: bold;
+        }
+
+        .styled-countdown p {
+            margin: 0;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #f1f1f1;
+        }
+
+        /* Responsive stiling */
+        @media (max-width: 768px) {
+            .styled-countdown {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .styled-countdown .time-box {
+                padding: 15px 10px;
+            }
+
+            .styled-countdown span {
+                font-size: 2.5rem;
+            }
+
+            .styled-countdown p {
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Smooth scroll for a better user experience */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #f76c6c;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 50%;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+            cursor: pointer;
+            display: none;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .back-to-top:hover {
+            background-color: #f55757;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1 class="text-center my-5">Gratulerer med dagen, Bestemor!</h1>
+
+        <!-- Dedikasjon -->
+        <div class="dedication">
+            <p>"Du er solstrålen som lyser opp våre liv. Gratulerer med dagen, kjære bestemor!"</p>
+        </div>
+
+        <!-- Bootstrap Carousel -->
+        <div id="imageCarousel" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="Bestemor og linus.JPEG" class="d-block w-100" alt="Bilde 1">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Velkommen!</h5>
+                        <p>Vi er så glade for å feire denne spesielle dagen med deg.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="IMG_3667.jpg" class="d-block w-100" alt="Bilde 2">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Gode minner</h5>
+                        <p>En samling av de beste øyeblikkene gjennom tidene.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="mIKKEL OG JENTENE.JPEG" class="d-block w-100" alt="Bilde 3">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Familie & Venner</h5>
+                        <p>Vi er alle her for å feire deg!</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="aFRIKA_1.JPG" class="d-block w-100" alt="Bilde 2">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Gode minner</h5>
+                        <p>En samling av de beste øyeblikkene gjennom tidene.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="Kaja.JPEG" class="d-block w-100" alt="Bilde 2">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Gode minner</h5>
+                        <p>En samling av de beste øyeblikkene gjennom tidene.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="Edinburgh.JPG" class="d-block w-100" alt="Bilde 2">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Gode minner</h5>
+                        <p>En samling av de beste øyeblikkene gjennom tidene.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="Fylla.JPEG" class="d-block w-100" alt="Bilde 2">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Gode minner</h5>
+                        <p>En samling av de beste øyeblikkene gjennom tidene.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="Hvem hadde trodd.JPEG" class="d-block w-100" alt="Bilde 2">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Gode minner</h5>
+                        <p>En samling av de beste øyeblikkene gjennom tidene.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="Faen dette gidder jeg et ikke.JPEG" class="d-block w-100" alt="Bilde 2">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Gode minner</h5>
+                        <p>En samling av de beste øyeblikkene gjennom tidene.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="Afrike_2.JPG" class="d-block w-100" alt="Bilde 2">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Gode minner</h5>
+                        <p>En samling av de beste øyeblikkene gjennom tidene.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kontrollknapper -->
+            <a class="carousel-control-prev" href="#imageCarousel" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Forrige</span>
+            </a>
+            <a class="carousel-control-next" href="#imageCarousel" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Neste</span>
+            </a>
+
+            <!-- Indikatorer -->
+            <ol class="carousel-indicators">
+                <li data-target="#imageCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#imageCarousel" data-slide-to="1"></li>
+                <li data-target="#imageCarousel" data-slide-to="2"></li>
+                <li data-target="#imageCarousel" data-slide-to="3"></li>
+                <li data-target="#imageCarousel" data-slide-to="4"></li>
+                <li data-target="#imageCarousel" data-slide-to="5"></li>
+                <li data-target="#imageCarousel" data-slide-to="6"></li>
+                <li data-target="#imageCarousel" data-slide-to="7"></li>
+                <!-- Legg til flere indikatorer her -->
+            </ol>
+        </div>
+
+        <!-- Galleri -->
+        <h2 class="text-center my-5">Bilder fra minnerike øyeblikk</h2>
+        <div class="gallery">
+            <img src="IMG_2795.JPEG" alt="Barndomsminner">
+            <img src="IMG_1200.JPEG" alt="Familie samlet">
+            <img src="ec7f0a0c-b3bd-4a4e-a14b-86771ad54f35.JPG" alt="Festligheter">
+            <img src="00b22cff-21b9-418d-95c6-00a06e9ab521.JPG" alt="Bestemor og barnebarn">
+            <img src="IMG_5705.JPEG" alt="Reiseminner">
+            <img src="IMG_54931.JPG" alt="Bestemors hage">
+        </div>
+    </div>
+    <!-- Tur til Singapore Seksjon -->
+    <div class="container my-5">
+        <div class="singapore-section text-center">
+            <h2 class="mb-4">Bestemor drar til Singapore!</h2>
+            <p class="lead">Vi gleder oss til å utforske Singapore sammen.</p>
+            <div id="singapore-countdown" class="styled-countdown mb-5">00:00:00</div>
+
+            <img src="licensed-image.jfif" alt="Singapore Skyline" class="img-fluid mb-4">
+
+            <p class="mt-4">Hvor i verden er bestemor? Følg med når vi drar på eventyr!</p>
+        </div>
+    </div>
+    <!-- Back to Top Button -->
+    <div class="back-to-top">
+        &uarr;
+    </div>
+
+    <!-- Bootstrap JS og jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Custom JS for Back to Top Button -->
+    <script>
+        // Show or hide the back-to-top button
+        window.onscroll = function () {
+            const backToTop = document.querySelector('.back-to-top');
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                backToTop.style.display = "block";
+            } else {
+                backToTop.style.display = "none";
+            }
+        };
+
+        // Scroll to the top when back-to-top button is clicked
+        document.querySelector('.back-to-top').addEventListener('click', function () {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+
+        const singaporeCountdownElement = document.getElementById('singapore-countdown');
+    const singaporeTripDate = new Date('2024-12-01T08:00:00'); // Sett riktig avreisedato og tid
+
+    function updateSingaporeCountdown() {
+        const now = new Date();
+        const diff = singaporeTripDate - now;
+
+        if (diff <= 0) {
+            singaporeCountdownElement.innerHTML = "Vi er på vei til Singapore!";
+            return;
+        }
+
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+        singaporeCountdownElement.innerHTML = `
+            <div class="time-box"><span>${days}</span><p>Dager</p></div>
+            <div class="time-box"><span>${hours}</span><p>Timer</p></div>
+            <div class="time-box"><span>${minutes}</span><p>Minutter</p></div>
+            <div class="time-box"><span>${seconds}</span><p>Sekunder</p></div>
+        `;
+    }
+
+    setInterval(updateSingaporeCountdown, 1000);
+    </script>
+</body>
+
+</html>
