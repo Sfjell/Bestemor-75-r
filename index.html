@@ -254,73 +254,33 @@
             <div class="carousel-inner">
                 <div class="carousel-item active">
                     <img src="Bestemor og linus.JPEG" class="d-block w-100" alt="Bilde 1">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>Velkommen!</h5>
-                        <p>Vi er så glade for å feire denne spesielle dagen med deg.</p>
-                    </div>
                 </div>
                 <div class="carousel-item">
                     <img src="IMG_3667.jpg" class="d-block w-100" alt="Bilde 2">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>Gode minner</h5>
-                        <p>En samling av de beste øyeblikkene gjennom tidene.</p>
-                    </div>
                 </div>
                 <div class="carousel-item">
                     <img src="mIKKEL OG JENTENE.JPEG" class="d-block w-100" alt="Bilde 3">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>Familie & Venner</h5>
-                        <p>Vi er alle her for å feire deg!</p>
-                    </div>
                 </div>
                 <div class="carousel-item">
                     <img src="aFRIKA_1.JPG" class="d-block w-100" alt="Bilde 2">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>Gode minner</h5>
-                        <p>En samling av de beste øyeblikkene gjennom tidene.</p>
-                    </div>
                 </div>
                 <div class="carousel-item">
                     <img src="Kaja.JPEG" class="d-block w-100" alt="Bilde 2">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>Gode minner</h5>
-                        <p>En samling av de beste øyeblikkene gjennom tidene.</p>
-                    </div>
                 </div>
                 <div class="carousel-item">
                     <img src="Edinburgh.JPG" class="d-block w-100" alt="Bilde 2">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>Gode minner</h5>
-                        <p>En samling av de beste øyeblikkene gjennom tidene.</p>
-                    </div>
                 </div>
                 <div class="carousel-item">
                     <img src="Fylla.JPEG" class="d-block w-100" alt="Bilde 2">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>Gode minner</h5>
-                        <p>En samling av de beste øyeblikkene gjennom tidene.</p>
-                    </div>
                 </div>
                 <div class="carousel-item">
                     <img src="Hvem hadde trodd.JPEG" class="d-block w-100" alt="Bilde 2">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>Gode minner</h5>
-                        <p>En samling av de beste øyeblikkene gjennom tidene.</p>
-                    </div>
                 </div>
                 <div class="carousel-item">
                     <img src="Faen dette gidder jeg et ikke.JPEG" class="d-block w-100" alt="Bilde 2">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>Gode minner</h5>
-                        <p>En samling av de beste øyeblikkene gjennom tidene.</p>
-                    </div>
                 </div>
                 <div class="carousel-item">
                     <img src="Afrike_2.JPG" class="d-block w-100" alt="Bilde 2">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>Gode minner</h5>
-                        <p>En samling av de beste øyeblikkene gjennom tidene.</p>
-                    </div>
                 </div>
             </div>
 
@@ -359,6 +319,20 @@
             <img src="IMG_54931.JPG" alt="Bestemors hage">
         </div>
     </div>
+    <!-- Video Seksjon -->
+    <div class="container my-5">
+        <div class="video-section text-center">
+            <h2 class="mb-4">Bestefar fikk i oppgave om å sende ett bilde...</h2>
+            <div class="d-flex justify-content-center">
+                <video controls class="embed-responsive embed-responsive-16by9" style="width: 100%; height: auto; max-width: 600px;">
+                    <source src="IMG_239111 (video-converter.com).mp4" type="video/mp4">
+                    Din nettleser støtter ikke videoformatet.
+                </video>
+            </div>
+            <p class="mt-4">Noen ganger blir det litt mer enn bare et bilde!</p>
+        </div>
+    </div>
+    
     <!-- Tur til Singapore Seksjon -->
     <div class="container my-5">
         <div class="singapore-section text-center">
@@ -371,6 +345,15 @@
             <p class="mt-4">Hvor i verden er bestemor? Følg med når vi drar på eventyr!</p>
         </div>
     </div>
+    <div class="container my-5">
+        <div class="speech-section text-center">
+            <h2 class="mb-4">Fjell Gutas Tale</h2>
+            <div class="speech-box p-4" style="background-color: #f76c6c; color: white; border-radius: 10px; box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15); max-width: 800px; margin: 0 auto;">
+                <iframe src="Tale Bestemors 75års dag.pdf" style="width: 100%; height: 500px; border-radius: 10px; box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);" frameborder="0"></iframe>
+            </div>
+        </div>
+    </div>
+    
     <!-- Back to Top Button -->
     <div class="back-to-top">
         &uarr;
@@ -400,31 +383,31 @@
 
 
         const singaporeCountdownElement = document.getElementById('singapore-countdown');
-    const singaporeTripDate = new Date('2024-12-01T08:00:00'); // Sett riktig avreisedato og tid
+        const singaporeTripDate = new Date('2024-12-01T08:00:00'); // Sett riktig avreisedato og tid
 
-    function updateSingaporeCountdown() {
-        const now = new Date();
-        const diff = singaporeTripDate - now;
+        function updateSingaporeCountdown() {
+            const now = new Date();
+            const diff = singaporeTripDate - now;
 
-        if (diff <= 0) {
-            singaporeCountdownElement.innerHTML = "Vi er på vei til Singapore!";
-            return;
-        }
+            if (diff <= 0) {
+                singaporeCountdownElement.innerHTML = "Vi er på vei til Singapore!";
+                return;
+            }
 
-        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
-        singaporeCountdownElement.innerHTML = `
+            singaporeCountdownElement.innerHTML = `
             <div class="time-box"><span>${days}</span><p>Dager</p></div>
             <div class="time-box"><span>${hours}</span><p>Timer</p></div>
             <div class="time-box"><span>${minutes}</span><p>Minutter</p></div>
             <div class="time-box"><span>${seconds}</span><p>Sekunder</p></div>
         `;
-    }
+        }
 
-    setInterval(updateSingaporeCountdown, 1000);
+        setInterval(updateSingaporeCountdown, 1000);
     </script>
 </body>
 
